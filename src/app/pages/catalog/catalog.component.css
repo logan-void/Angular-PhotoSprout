@@ -1,0 +1,15 @@
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.catalog {
+  padding: 2rem;
+}
+
+.catalog h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
