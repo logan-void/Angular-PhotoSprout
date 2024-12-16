@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from '../../services/firebase.service';
+import { catalogService } from '../../services/catalogService';
 import { CatalogItemComponent } from '../../components/catalog-item/catalog-item.component';
 import { CommonModule } from '@angular/common';
+import { CatalogItem } from '../../types';
 
 @Component({
   selector: 'app-catalog',
   standalone: true,
   imports: [CatalogItemComponent, CommonModule],
-  providers: [FirebaseService],
+  providers: [catalogService],
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.css']
 })
 export class CatalogComponent implements OnInit {
-  items: any[] = [];
+  items: CatalogItem[] = [];
 
-  constructor(private firebaseService: FirebaseService) {}
+  constructor(private catalogService: catalogService) {}
 
   ngOnInit() {
     this.loadItems();
@@ -22,7 +23,7 @@ export class CatalogComponent implements OnInit {
 
   async loadItems() {
     try {
-      const fetchedItems = await this.firebaseService.fetchItems();
+      const fetchedItems = await this.catalogService.fetchItems();
       
       console.log("Fetched items:", fetchedItems);
       

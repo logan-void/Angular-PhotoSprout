@@ -1,0 +1,111 @@
+.hero {
+  text-align: center;
+  padding: 5rem 1rem;
+  color: rgb(0, 0, 0);
+  position: relative;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.hero-buttons .btn {
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  margin: 0 0.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.2s;
+  background-color: transparent;
+  border: 2px solid black;
+  color: #000000;
+}
+
+.hero-buttons .btn:hover {
+  cursor: pointer;
+  background-color: rgb(97, 96, 96);
+  color: white;
+}
+
+.about {
+  margin-top: 50px;
+  text-align: center;
+  background-color: transparent;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  text-align: left;
+  margin-bottom: 175px;
+}
+
+.about p {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 600px;
+}
+
+.about-image {
+  max-width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.features {
+  padding: 3rem 1rem;
+  background-color: white;
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.feature-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.feature {
+  max-width: 300px;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.feature-image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.feature h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}

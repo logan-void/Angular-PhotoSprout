@@ -1,23 +1,17 @@
 import { Injectable } from '@angular/core';
-import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
-import { environment } from '../../environments/environment';
-
-interface CatalogItem {
-  title: string;
-  image: string;
-}
+import { CatalogItem } from '../types';
+import { FirebaseApp } from '@angular/fire/app';
 
 @Injectable({
   providedIn: 'root',
 })
-export class FirebaseService {
+export class catalogService {
   private db;
   private catalogCollection;
 
-  constructor() {
-    const app = initializeApp(environment.firebaseConfig);
-    this.db = getFirestore(app);
+  constructor(firebaseApp: FirebaseApp) {
+    this.db = getFirestore(firebaseApp);
     this.catalogCollection = collection(this.db, 'catalogItems');
   }
 
@@ -27,7 +21,7 @@ export class FirebaseService {
       const items: CatalogItem[] = querySnapshot.docs.map((doc) => {
         const data = doc.data();
 
-        console.log('Fetched document data:', data);
+        console.log('Fetched catalog items', data);
 
         return {
           title: data['imgName'],
@@ -37,7 +31,7 @@ export class FirebaseService {
 
       return items;
     } catch (error) {
-      console.error('Error fetching documents: ', error);
+      console.error('Error fetching catalog items', error);
       return [];
     }
   }
