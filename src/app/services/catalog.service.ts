@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, getDoc, doc } from 'firebase/firestore';
 import { CatalogItem } from '../types';
 import { FirebaseApp } from '@angular/fire/app';
 
@@ -24,8 +24,11 @@ export class catalogService {
         console.log('Fetched catalog items', data);
 
         return {
+          id: doc.id,
           title: data['imgName'],
+          description: data['description'],
           image: data['source'],
+          author: data['author'],
         };
       });
 
@@ -33,6 +36,33 @@ export class catalogService {
     } catch (error) {
       console.error('Error fetching catalog items', error);
       return [];
+    }
+  }
+
+  async fetchItemById(id: string): Promise<CatalogItem | null> {
+    try {
+      const itemDocRef = doc(this.db, 'catalogItems', id);
+      const docSnap = await getDoc(itemDocRef);
+
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+
+        return {
+          id: docSnap.id,
+          title: data['imgName'],
+          description: data['description'],
+          image: data['source'],
+          author: data['author'],
+        };
+      } else {
+        console.log(`Couldn't find document!`);
+        return null;
+      }  
+    }
+
+    catch (error) {
+      console.log('Error fetching catalog item by ID', error);
+      return null;
     }
   }
 }

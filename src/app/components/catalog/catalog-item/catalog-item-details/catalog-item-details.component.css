@@ -1,0 +1,29 @@
+.details-container {
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.details-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.details-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.details-container p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.loading, .error {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #888;
+  margin-top: 2rem;
+}

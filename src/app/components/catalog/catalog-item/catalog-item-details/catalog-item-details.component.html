@@ -1,0 +1,22 @@
+
+@if (isLoading) {
+  <div class="loading">
+    <p>Loading...</p>
+  </div>
+}
+
+@else {
+  <div class="error">
+    <p>{{ error }}</p>
+  </div>
+  
+  @if (item) {
+    <div class="details-container">
+      <h1>{{ item.title }}</h1>
+      <img [src]="item.image" [alt]="item.title" class="details-image" />
+      <p><strong>Author:</strong> {{ item.author }}</p>
+      <p><strong>Description:</strong> {{ item.description }}</p>
+    </div>
+  }
+}
+

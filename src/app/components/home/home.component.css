@@ -1,23 +1,21 @@
 .hero {
-  text-align: center;
-  padding: 5rem 1rem;
-  color: rgb(0, 0, 0);
   position: relative;
-}
-
-.hero-image img {
   width: 100%;
-  height: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  opacity: 0.3;
-  pointer-events: none;
+  height: 100vh;
+  background-image: url('../../../assets/images/landscape.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  color: black;
+  padding: 2rem;
 }
 
 .hero-content h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   margin-bottom: 1rem;
 }
 
@@ -27,26 +25,23 @@
 }
 
 .hero-buttons .btn {
-  font-weight: bold;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  margin: 0 0.5rem;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background-color: rgb(97, 96, 96);
+  border: 2px solid black;
+  color: white;
   border-radius: 5px;
   text-decoration: none;
-  transition: 0.2s;
-  background-color: transparent;
-  border: 2px solid black;
-  color: #000000;
+  cursor: pointer;
 }
 
 .hero-buttons .btn:hover {
-  cursor: pointer;
-  background-color: rgb(97, 96, 96);
-  color: white;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
 }
 
-.about {
-  margin-top: 50px;
+.about-section {
+  margin-top: 5rem;
   text-align: center;
   background-color: transparent;
 }
@@ -57,55 +52,46 @@
   justify-content: center;
   gap: 2rem;
   text-align: left;
-  margin-bottom: 175px;
+  margin-bottom: 100px;
+  background-color:rgba(0, 0, 0, 0.4)
 }
 
-.about p {
-  font-size: 1.2rem;
-  color: #555;
+.about-content p {
+  font-size: 1.3rem;
+  font-weight: normal; 
+  color: #d6d4d4;
+  line-height: 1.8;
   max-width: 600px;
+  padding: 5rem;
 }
 
 .about-image {
   max-width: 300px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 5rem;
 }
 
-.features {
-  padding: 3rem 1rem;
-  background-color: white;
-  text-align: center;
-}
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem; 
+  }
 
-.features h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
+  .hero-content p {
+    font-size: 1.2rem;
+  }
 
-.feature-grid {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-}
+  .hero-buttons .btn {
+    font-size: 1rem;
+  }
 
-.feature {
-  max-width: 300px;
-  padding: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  text-align: center;
-}
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
 
-.feature-image {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-  margin-bottom: 1rem;
-}
-
-.feature h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  .about-image {
+    max-width: 100%;
+    margin-top: 1rem;
+  }
 }

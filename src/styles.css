@@ -1,8 +1,7 @@
-html {
-    font-family: sans-serif;
-}
-
-body {
-    min-height: 100vh;
+html, body {
     margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: sans-serif;
+    overflow-x: hidden;
 }

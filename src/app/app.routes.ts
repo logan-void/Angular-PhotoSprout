@@ -4,6 +4,7 @@ import { CatalogComponent } from './components/catalog/catalog.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { CatalogItemDetailsComponent } from './components/catalog/catalog-item/catalog-item-details/catalog-item-details.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -11,4 +12,5 @@ export const routes: Routes = [
     { path: 'about', component: AboutComponent},
     { path: 'contacts', component: ContactsComponent},
     { path: 'privacy', component: PrivacyPolicyComponent},
+    { path: 'catalog/:id', component: CatalogItemDetailsComponent },
 ];
