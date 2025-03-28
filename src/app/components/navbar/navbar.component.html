@@ -4,7 +4,11 @@
   </div>
   <ul class="nav-links">
     <li><a routerLink="/catalog">Catalog</a></li>
-    <li><a routerLink="/login">Login</a></li>
-    <li><a routerLink="/register">Sign Up</a></li>
+    @if (!user()) {
+      <li><a routerLink="/login">Login</a></li>
+      <li><a routerLink="/register">Sign Up</a></li>
+    } @else {
+      <li (click)="logout()">Logout</li>
+    }
   </ul>
 </nav>

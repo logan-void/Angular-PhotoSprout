@@ -1,0 +1,27 @@
+<div id="register-div">
+    <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+          <label>Email</label>
+          <input type="email" formControlName="email">
+          @if (emailControl?.invalid && emailControl?.touched) {
+            <div class="error">Email is invalid</div>
+          }
+
+          <label>Password</label>
+          <input type="password" formControlName="password">
+          @if (passwordControl?.invalid && passwordControl?.touched) {
+            <div class="error">Password must be at least 6 characters</div>
+          }
+        
+          <label>Repeat Password</label>
+          <input type="password" formControlName="repeatPassword">
+          @if (repeatPasswordControl?.invalid && repeatPasswordControl?.touched) {
+            <div class="error">Passwords must match</div>
+          }
+          @if (registerForm.errors?.['passwordsNotMatching'] && registerForm.touched) {
+            <div class="error">Passwords do not match</div>
+          }
+      
+        <button type="submit" [disabled]="registerForm.invalid">Register</button>
+      </form>    
+</div>

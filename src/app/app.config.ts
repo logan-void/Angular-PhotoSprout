@@ -3,7 +3,9 @@ import { provideRouter } from '@angular/router';
 import { environment } from '../environment/environment';
 import { routes } from './app.routes';
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore'
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 export const appConfig: ApplicationConfig = {
@@ -12,6 +14,10 @@ export const appConfig: ApplicationConfig = {
       console.log('Initializing Firebase App');
       return initializeApp(environment.firebaseConfig);
     }),
-      provideFirestore(() => getFirestore())
+      provideAuth(() => getAuth()),
+      provideFirestore(() => getFirestore()),
+      ReactiveFormsModule
   ]
 };
+
+
