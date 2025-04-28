@@ -4,7 +4,5 @@ export interface User {
     username?: string;
     profilePicture?: string;
     createdAt?: Date;
-    photos?: string[];
-    comments?: Comment[];
   }
   

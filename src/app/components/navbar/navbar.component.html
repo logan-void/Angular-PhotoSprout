@@ -8,6 +8,7 @@
       <li><a routerLink="/login">Login</a></li>
       <li><a routerLink="/register">Sign Up</a></li>
     } @else {
+      <li><a [routerLink]="['/users', user()!.uid]">Profile</a></li>
       <li (click)="logout()">Logout</li>
     }
   </ul>

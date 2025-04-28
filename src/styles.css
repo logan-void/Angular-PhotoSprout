@@ -1,9 +1,16 @@
 html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
-    height: 100vh;
+  }
+  
+  .app-wrapper {
     display: flex;
     flex-direction: column;
-    font-family: sans-serif;
-    overflow-x: hidden;
-}
+    min-height: 100vh;
+  }
+  
+  .main-content {
+    flex: 1;
+  }
+  

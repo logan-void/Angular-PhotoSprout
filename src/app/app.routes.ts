@@ -7,6 +7,7 @@ import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-poli
 import { CatalogItemDetailsComponent } from './components/catalog/catalog-item/catalog-item-details/catalog-item-details.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -17,4 +18,5 @@ export const routes: Routes = [
     { path: 'catalog/:id', component: CatalogItemDetailsComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'login', component: LoginComponent},
+    { path: 'users/:id', component: UserProfileComponent},
 ];

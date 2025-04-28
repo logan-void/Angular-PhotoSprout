@@ -1,0 +1,31 @@
+@if (isLoading()) {
+  <div class="spinner-container">
+    <div class="spinner"></div>
+    <p>Loading user...</p>
+  </div>
+} @else {
+  @if (profileUser()) {
+    <div class="user-profile-container">
+      <div class="user-profile-card">
+        <img
+          class="user-avatar"
+          [src]="profileUser()?.profilePicture"
+          alt="User Avatar"
+        />
+  
+        <div class="user-info">
+          <h2 class="username">{{ profileUser()?.username || 'Anonymous' }}</h2>
+          @if(isOwnProfile) {
+            <p class="email">{{ profileUser()?.email }}</p>
+          }
+          
+          @if (isOwnProfile) {
+            <button class="edit-button">Edit Profile</button>
+          }
+        </div>
+      </div>
+    </div>
+  } @else {
+    <p>No user found.</p>
+  }
+}

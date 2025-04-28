@@ -1,5 +1,7 @@
 import { Injectable, signal } from '@angular/core';
-import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, User as FirebaseUser } from '@angular/fire/auth';
+import { Auth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, User as FirebaseUser } from '@angular/fire/auth';
+import { FirebaseApp } from '@angular/fire/app';
+import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 import { User } from '../models/user.model';
 
 @Injectable({
@@ -7,20 +9,40 @@ import { User } from '../models/user.model';
 })
 export class AuthService {
   user = signal<User | null>(null);
+  private db;
 
-  constructor(private auth: Auth) {
-      onAuthStateChanged(this.auth, (firebaseUser) => {
-        if (firebaseUser) {
-          this.user.set(this.mapFirebaseUser(firebaseUser));
+  constructor(private auth: Auth, firebaseApp: FirebaseApp) {
+    this.db = getFirestore(firebaseApp);
+
+    onAuthStateChanged(this.auth, async (firebaseUser) => {
+      if (firebaseUser) {
+        const userDoc = await getDoc(doc(this.db, 'users', firebaseUser.uid));
+        if (userDoc.exists()) {
+          this.user.set(userDoc.data() as User);
         } else {
-          this.user.set(null);
+          this.user.set(this.mapFirebaseUser(firebaseUser));
         }
-      });
+      } else {
+        this.user.set(null);
+      }
+    });
   }
 
   async register(email: string, password: string) {
     const credentials = await createUserWithEmailAndPassword(this.auth, email, password);
-    return credentials.user;
+    const firebaseUser = credentials.user;
+
+    const newUser: User = {
+      uid: firebaseUser.uid,
+      email: firebaseUser.email || '',
+      username: firebaseUser.displayName || '',
+      profilePicture: firebaseUser.photoURL || 'default-avatar.jpg',
+      createdAt: new Date(),
+    };
+
+    await setDoc(doc(this.db, 'users', newUser.uid), newUser);
+
+    return firebaseUser;
   }
 
   async login(email: string, password: string) {
