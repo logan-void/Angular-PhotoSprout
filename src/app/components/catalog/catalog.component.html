@@ -1,5 +1,13 @@
 <div class="catalog">
-  <h2>Catalog</h2>
+  
+  <div class="catalog-header">
+    <h2>Catalog</h2>
+
+    @if (isLoggedIn) {
+      <a id="add-photo" routerLink="/catalog/add">Add Photo</a>
+    }
+  </div>
+  
   <div class="catalog-grid">
     <app-catalog-item *ngFor="let item of items" [item]="item"></app-catalog-item>
   </div>

@@ -3,5 +3,8 @@ export interface CatalogItem {
   title: string;
   description: string;
   image: string;
-  author: string;
+  author: {
+    id: string;
+    username: string;
+  };
 }

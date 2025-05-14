@@ -4,6 +4,7 @@ import { CatalogItemComponent } from './catalog-item/catalog-item.component';
 import { CommonModule } from '@angular/common';
 import { CatalogItem } from '../../types';
 import { RouterModule } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-catalog',
@@ -16,7 +17,7 @@ import { RouterModule } from '@angular/router';
 export class CatalogComponent implements OnInit {
   items: CatalogItem[] = [];
 
-  constructor(private catalogService: catalogService) {}
+  constructor(private catalogService: catalogService, private authService: AuthService) {}
 
   ngOnInit() {
     this.loadItems();
@@ -34,5 +35,9 @@ export class CatalogComponent implements OnInit {
     } catch (error) {
       console.error('Error loading items:', error);
     }
+  }
+
+  get isLoggedIn(): boolean {
+    return !!this.authService.user();
   }
 }

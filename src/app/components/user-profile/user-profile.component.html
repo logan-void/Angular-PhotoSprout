@@ -12,7 +12,7 @@
           [src]="profileUser()?.profilePicture"
           alt="User Avatar"
         />
-  
+    
         <div class="user-info">
           <h2 class="username">{{ profileUser()?.username || 'Anonymous' }}</h2>
           @if(isOwnProfile) {
@@ -20,7 +20,7 @@
           }
           
           @if (isOwnProfile) {
-            <button class="edit-button">Edit Profile</button>
+            <button class="edit-button" [routerLink]="['/users', profileUser()?.uid, 'edit']">Edit Profile</button>
           }
         </div>
       </div>

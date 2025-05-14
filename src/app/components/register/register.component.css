@@ -1,70 +1,90 @@
-#register-div{
-    height: 575px;
+#register-div {
+    min-height: 575px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-form {
+    padding: 2rem;
+  }
+  
+  form {
     display: flex;
-    width: 20%;
+    width: 100%;
+    max-width: 400px;
     flex-direction: column;
-}
-
-form label {
-    font-size: 20px;
-}
-
-form input {
-    height: 20px;
-    border: solid 1px;
-    margin-bottom: 20px;
-}
-
-form button {
- background-color: transparent;
- border: 0.125em solid #1A1A1A;
- border-radius: 0.9375em;
- box-sizing: border-box;
- color: #3B3B3B;
- cursor: pointer;
- display: inline-block;
- font-size: 16px;
- font-weight: 600;
- line-height: normal;
- margin: 0;
- min-height: 3em;
- min-width: 0;
- outline: none;
- padding: 1em 2.3em;
- text-align: center;
- text-decoration: none;
- transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
- user-select: none;
- -webkit-user-select: none;
- touch-action: manipulation;
- will-change: transform;
-}
-
-form button:disabled {
- pointer-events: not-allowed !important;
- color: gray;
- border-color: gray;
- cursor: not-allowed;
-}
-
-form button:hover {
- color: #fff;
- background-color: #1A1A1A;
- box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
- transform: translateY(-2px);
-}
-
-form button:active {
- box-shadow: none;
- transform: translateY(0);
-}
-
-.error {
-  color: red;  
-}
+    gap: 1rem;
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  form label {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  
+  form input {
+    height: 2rem;
+    font-size: 1rem;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  form button {
+    background-color: transparent;
+    border: 0.125em solid #1A1A1A;
+    border-radius: 0.9375em;
+    color: #3B3B3B;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1em 2.3em;
+    text-align: center;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  }
+  
+  form button:disabled {
+    pointer-events: none;
+    color: gray;
+    border-color: gray;
+    cursor: not-allowed;
+  }
+  
+  form button:hover {
+    color: #fff;
+    background-color: #1A1A1A;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+  
+  form button:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+  
+  .error {
+    color: red;
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 768px) {
+    form {
+      padding: 1.5rem;
+    }
+  
+    form label {
+      font-size: 1rem;
+    }
+  
+    form input {
+      height: 2rem;
+      font-size: 0.95rem;
+    }
+  
+    form button {
+      font-size: 0.95rem;
+      padding: 0.9em 1.8em;
+    }
+  }
+  

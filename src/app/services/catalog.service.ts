@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { getFirestore, collection, getDocs, getDoc, doc } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, getDoc, doc, addDoc } from 'firebase/firestore';
 import { CatalogItem } from '../types';
 import { FirebaseApp } from '@angular/fire/app';
 
@@ -28,7 +28,10 @@ export class catalogService {
           title: data['imgName'],
           description: data['description'],
           image: data['source'],
-          author: data['author'],
+          author: {
+            id: data['authorId'],
+            username: data['authorUsername']
+          }
         };
       });
 
@@ -52,17 +55,39 @@ export class catalogService {
           title: data['imgName'],
           description: data['description'],
           image: data['source'],
-          author: data['author'],
+          author: {
+            id: data['authorId'],
+            username: data['authorUsername']
+          }
         };
       } else {
         console.log(`Couldn't find document!`);
         return null;
-      }  
-    }
-
-    catch (error) {
+      }
+    } catch (error) {
       console.log('Error fetching catalog item by ID', error);
       return null;
+    }
+  }
+
+  async addCatalogItem(data: {
+    imgName: string;
+    description: string;
+    source: string;
+    authorId: string;
+    authorUsername: string;
+  }): Promise<void> {
+    try {
+      await addDoc(this.catalogCollection, {
+        imgName: data.imgName,
+        description: data.description,
+        source: data.source,
+        authorId: data.authorId,
+        authorUsername: data.authorUsername
+      });
+    } catch (error) {
+      console.error('Error adding catalog item:', error);
+      throw error;
     }
   }
 }

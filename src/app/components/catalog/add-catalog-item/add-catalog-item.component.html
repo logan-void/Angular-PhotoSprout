@@ -1,0 +1,21 @@
+<div class="add-photo-container">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <label for="imgName">Image Name</label>
+      <input id="imgName" formControlName="imgName" type="text" />
+
+      <label for="description">Description</label>
+      <input id="description" formControlName="description" type="text" />
+
+      <label for="photo">Photo</label>
+      <input id="photo" type="file" (change)="onFileSelected($event)" />
+
+      @if (previewUrl) {
+        <div class="image-preview">
+          <p>Preview:</p>
+          <img [src]="previewUrl" alt="Profile Preview" width="150" />
+        </div>
+      }
+      
+      <button type="submit" [disabled]="userForm.invalid">Upload Photo</button>
+    </form>
+  </div>

@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100dvh;
   background-image: url('../../../assets/images/landscape.jpg');
   background-size: cover;
   background-position: center;
@@ -9,9 +9,16 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: 'Alegreya', serif;
   text-align: center;
   color: black;
   padding: 2rem;
+  box-sizing: border-box;
+}
+
+.hero-content {
+  max-width: 90%;
+  width: 600px;
 }
 
 .hero-content h1 {
@@ -20,19 +27,30 @@
 }
 
 .hero-content p {
+  font-weight: 500;
   font-size: 1.5rem;
   margin-bottom: 2rem;
 }
 
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
 .hero-buttons .btn {
   padding: 1rem 2rem;
+  font-family: 'Alegreya', serif;
   font-size: 1.2rem;
+  font-weight: 500;
   background-color: rgb(97, 96, 96);
   border: 2px solid black;
   color: white;
   border-radius: 5px;
   text-decoration: none;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .hero-buttons .btn:hover {
@@ -53,28 +71,32 @@
   gap: 2rem;
   text-align: left;
   margin-bottom: 100px;
-  background-color:rgba(0, 0, 0, 0.4)
+  background-color: rgba(0, 0, 0, 0.4);
+  flex-wrap: wrap;
+  padding: 2rem;
+  box-sizing: border-box;
 }
 
 .about-content p {
   font-size: 1.3rem;
-  font-weight: normal; 
+  font-weight: normal;
   color: #d6d4d4;
   line-height: 1.8;
   max-width: 600px;
-  padding: 5rem;
+  padding: 2rem;
 }
 
 .about-image {
   max-width: 300px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 5rem;
+  padding: 2rem;
+  width: 100%;
 }
 
 @media (max-width: 768px) {
   .hero-content h1 {
-    font-size: 2.5rem; 
+    font-size: 2.5rem;
   }
 
   .hero-content p {
@@ -83,15 +105,22 @@
 
   .hero-buttons .btn {
     font-size: 1rem;
+    padding: 0.75rem 1.5rem;
   }
 
   .about-content {
     flex-direction: column;
     text-align: center;
+    padding: 1rem;
+  }
+
+  .about-content p {
+    padding: 1rem;
   }
 
   .about-image {
     max-width: 100%;
     margin-top: 1rem;
+    padding: 1rem;
   }
 }

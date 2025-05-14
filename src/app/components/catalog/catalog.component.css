@@ -15,3 +15,35 @@
   font-size: 2rem;
   margin-bottom: 2rem;
 }
+
+.catalog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.catalog-header h2 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+#add-photo {
+  padding: 0.5rem 1rem;
+  font-family: 'Alegreya', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background-color: rgb(97, 96, 96);
+  border: 2px solid black;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#add-photo:hover {
+  background-color: transparent;
+  color: black;
+}

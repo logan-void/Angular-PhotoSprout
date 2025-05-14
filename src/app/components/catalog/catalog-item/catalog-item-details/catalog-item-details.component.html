@@ -14,7 +14,7 @@
     <div class="details-container">
       <h1>{{ item.title }}</h1>
       <img [src]="item.image" [alt]="item.title" class="details-image" />
-      <p><strong>Author:</strong> {{ item.author }}</p>
+      <p><strong>Author:</strong> {{ item.author.username }}</p>
       <p><strong>Description:</strong> {{ item.description }}</p>
     </div>
   }
