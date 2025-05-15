@@ -9,6 +9,7 @@ import { User } from '../models/user.model';
 })
 export class AuthService {
   user = signal<User | null>(null);
+  loading = signal(true);
   private db;
 
   constructor(private auth: Auth, firebaseApp: FirebaseApp) {
@@ -25,6 +26,7 @@ export class AuthService {
       } else {
         this.user.set(null);
       }
+      this.loading.set(false);
     });
   }
 

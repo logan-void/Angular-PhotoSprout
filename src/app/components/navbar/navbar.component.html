@@ -2,14 +2,19 @@
   <div class="logo">
     <a routerLink="/">PhotoSprout</a>
   </div>
+
   <ul class="nav-links">
-    <li><a routerLink="/catalog">Catalog</a></li>
-    @if (!user()) {
-      <li><a routerLink="/login">Login</a></li>
-      <li><a routerLink="/register">Sign Up</a></li>
+    @if (loading()) {
+
     } @else {
-      <li><a [routerLink]="['/users', user()!.uid]">Profile</a></li>
-      <li (click)="logout()">Logout</li>
+      <li><a routerLink="/catalog">Catalog</a></li>
+      @if (!user()) {
+        <li><a routerLink="/login">Login</a></li>
+        <li><a routerLink="/register">Sign Up</a></li>
+      } @else {
+        <li><a [routerLink]="['/users', user()!.uid]">Profile</a></li>
+        <li (click)="logout()">Logout</li>
+      }
     }
   </ul>
 </nav>
